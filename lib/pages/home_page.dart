@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:rest_api/models/todo.dart';
+import 'package:rest_api/pages/delete.dart';
 import 'package:rest_api/repository/todo_repository.dart';
 import 'package:http/http.dart' as http;
 
@@ -45,6 +46,17 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Theme.of(context).primaryColor,
           elevation: 0,
           title: Text("REST API"),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DeleteAfter()));
+                },
+                child: Text(
+                  "Go",
+                  style: TextStyle(color: Colors.white),
+                ))
+          ],
         ),
         body: FutureBuilder<List<Todo>>(
             future: TodoRepository().getTodoList(),
