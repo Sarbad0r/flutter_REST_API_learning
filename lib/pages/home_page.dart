@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:rest_api/models/todo.dart';
-import 'package:rest_api/pages/delete.dart';
+import 'package:rest_api/pages/from_laravel.dart';
+import 'package:rest_api/pages/star_wars_api_from_github.dart';
 import 'package:rest_api/repository/todo_repository.dart';
 import 'package:http/http.dart' as http;
 
@@ -47,6 +48,12 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           title: Text("REST API"),
           actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => FromLaravel()));
+                },
+                child: Text("Laravel")),
             TextButton(
                 onPressed: () {
                   Navigator.push(context,
